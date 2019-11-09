@@ -1,0 +1,47 @@
+{
+  "name": "ukvstore",
+  "version": "0.0.0",
+  "description": "Micro KV Store for Node.js.",
+  "main": "lib/ukvstore.js",
+  "engines": {
+    "node": ">=12.13.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "test": "tea-time -R dot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cronvel/ukvstore.git"
+  },
+  "keywords": [
+    "key",
+    "value",
+    "store"
+  ],
+  "author": "Cédric Ronvel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cronvel/ukvstore/issues"
+  },
+  "config": {
+    "tea-time": {
+      "coverDir": [
+        "lib"
+      ]
+    }
+  },
+  "copyright": {
+    "title": "Micro KV Store",
+    "years": [
+      2019
+    ],
+    "owner": "Cédric Ronvel"
+  }
+}
