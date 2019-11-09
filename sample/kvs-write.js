@@ -34,7 +34,7 @@ async function run() {
 	var store = new KVStore( './test.db' ) ;
 	await store.loadDB() ;
 	console.log( store.get( 'zzz' ) ) ;
-	await store.set( "bob" , "bill" ) ;
+	await store.set( "akey" , "avalue" ) ;
 	
 	process.exit() ;
 }
