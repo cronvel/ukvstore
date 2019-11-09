@@ -115,6 +115,11 @@ async function run() {
 				await store.delete( key ) ;
 				break ;
 
+			case 'clear':
+				term.green( 'Clearing %i entries\n' , store.size ) ;
+				await store.clear() ;
+				break ;
+
 			case 'size':
 				term.green( 'Size %i\n' , store.size ) ;
 				break ;
@@ -123,6 +128,20 @@ async function run() {
 				term.green( 'Keys:\n' ) ;
 				for ( let key of store.keys() ) {
 					term( '  %s\n' , key ) ;
+				}
+				break ;
+
+			case 'values':
+				term.green( 'Values:\n' ) ;
+				for ( let value of store.values() ) {
+					term( '  %s\n' , value ) ;
+				}
+				break ;
+
+			case 'entries':
+				term.green( 'Entries:\n' ) ;
+				for ( let entry of store.entries() ) {
+					term( '  %s: %s\n' , entry[ 0 ] , entry[ 1 ] ) ;
 				}
 				break ;
 
