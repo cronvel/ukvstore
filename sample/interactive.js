@@ -131,6 +131,7 @@ async function run() {
 				}
 				break ;
 
+			case 'vals':
 			case 'values':
 				term.green( 'Values:\n' ) ;
 				for ( let value of store.values() ) {
@@ -138,6 +139,8 @@ async function run() {
 				}
 				break ;
 
+			case 'l':
+			case 'list':
 			case 'entries':
 				term.green( 'Entries:\n' ) ;
 				for ( let entry of store.entries() ) {
