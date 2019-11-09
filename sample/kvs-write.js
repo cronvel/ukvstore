@@ -25,17 +25,16 @@
 	SOFTWARE.
 */
 
-const fsPromise = require( 'fs' ).promises ;
-const jsbindat = require( '..' ) ;
-const KVStore = jsbindat.KVStore ;
+const ukvstore = require( '..' ) ;
+const KVStore = ukvstore.KVStore ;
 
 
 
 async function run() {
-	var file = await fsPromise.open( './test.db' , 'w+' ) ;
-	console.log( file ) ;
-	
-	var store = new KVStore( file ) ;
+	var store = new KVStore( './test.db' ) ;
+	await store.loadDB() ;
+	console.log( store.get( 'zzz' ) ) ;
+	await store.set( "bob" , "bill" ) ;
 	
 	process.exit() ;
 }

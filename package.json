@@ -1,6 +1,6 @@
 {
   "name": "ukvstore",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Micro KV Store for Node.js.",
   "main": "lib/ukvstore.js",
   "engines": {
@@ -10,9 +10,9 @@
     "test": "test"
   },
   "dependencies": {
+    "seventh": "^0.7.30"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "tea-time -R dot"
   },

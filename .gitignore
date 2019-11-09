@@ -15,6 +15,7 @@ build
 _build
 _templates
 _static
+sample/test.db
 
 
 # gitignore / Node.gitignore #
