@@ -35,7 +35,7 @@ const term = termkit.terminal ;
 async function run() {
 	var store , input , matches , command , key , value , history = [] ;
 	
-	store = new KVStore( process.argv[ 2 ] || './test.db' ) ;
+	store = new KVStore( process.argv[ 2 ] || './test.db' , { bufferValues: false } ) ;
 	await store.loadDB() ;
 	
 	term.on( 'key' , key => {
@@ -144,7 +144,7 @@ async function run() {
 			case 'entries':
 				term.green( 'Entries:\n' ) ;
 				for ( let entry of store.entries() ) {
-					term( '  %s: %s\n' , entry[ 0 ] , entry[ 1 ] ) ;
+					term( '  %s: %n\n' , entry[ 0 ] , entry[ 1 ] ) ;
 				}
 				break ;
 
