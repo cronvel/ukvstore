@@ -1,0 +1,11 @@
+
+* Create a KV store with inMemoryValues:false
+* Plug a serializer/unserializer to values, for storing any documents (use “JSBinDat” module)
+* Direct access with the key, which is the ID, is already provided
+* ID must be immutable
+* For big DB, plug the “megahash” module as a replacement for ES6 Map()
+* Creating an index is creating another KV store:
+	* the key is the index serialized to a string
+	* the value is a serialized array of document ID
+* When the document is modified, all the indexed should be computed, old indexes must be deleted, new should be created
+

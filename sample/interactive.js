@@ -87,12 +87,8 @@ async function run() {
 					break ;
 				}
 				
-				if ( inMemoryValues ) {
-					value = store.get( key ) ;
-				}
-				else {
-					value = await store.get( key ) ;
-				}
+				value = store.get( key ) ;
+				if ( ! inMemoryValues ) { value = await value ; }
 				
 				if ( value === undefined ) {
 					term.green( 'Getting "%s": <not found>\n' , key ) ;
@@ -144,6 +140,7 @@ async function run() {
 			case 'values':
 				term.green( 'Values:\n' ) ;
 				for ( let value of store.values() ) {
+					if ( ! inMemoryValues ) { value = await value ; }
 					term( '  %s\n' , value ) ;
 				}
 				break ;
@@ -153,6 +150,7 @@ async function run() {
 			case 'entries':
 				term.green( 'Entries:\n' ) ;
 				for ( let entry of store.entries() ) {
+					if ( ! inMemoryValues ) { entry[ 1 ] = await entry[ 1 ] ; }
 					term( '  %s: %n\n' , entry[ 0 ] , entry[ 1 ] ) ;
 				}
 				break ;
