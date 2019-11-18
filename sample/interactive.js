@@ -32,10 +32,14 @@ const term = termkit.terminal ;
 
 
 
+var inMemoryValues = false ;
+
+
+
 async function run() {
 	var store , input , matches , command , key , value , history = [] ;
 	
-	store = new KVStore( process.argv[ 2 ] || './test.db' , { bufferValues: false } ) ;
+	store = new KVStore( process.argv[ 2 ] || './test.db' , { bufferValues: false , inMemoryValues } ) ;
 	await store.loadDB() ;
 	
 	term.on( 'key' , key => {
@@ -83,7 +87,12 @@ async function run() {
 					break ;
 				}
 				
-				value = store.get( key ) ;
+				if ( inMemoryValues ) {
+					value = store.get( key ) ;
+				}
+				else {
+					value = await store.get( key ) ;
+				}
 				
 				if ( value === undefined ) {
 					term.green( 'Getting "%s": <not found>\n' , key ) ;
