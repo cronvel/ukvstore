@@ -1,6 +1,6 @@
 {
   "name": "ukvstore",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Micro KV Store for Node.js.",
   "main": "lib/ukvstore.js",
   "engines": {

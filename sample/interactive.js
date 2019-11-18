@@ -32,14 +32,19 @@ const term = termkit.terminal ;
 
 
 
-var inMemoryValues = false ;
+const inMemoryValues = false ;
 
 
 
 async function run() {
 	var store , input , matches , command , key , value , history = [] ;
 	
-	store = new KVStore( process.argv[ 2 ] || './test.db' , { bufferValues: false , inMemoryValues } ) ;
+	store = new KVStore( process.argv[ 2 ] || './test.db' , {
+		bufferValues: false ,
+		inMemoryValues ,
+		//Map: require( 'megahash' )
+	} ) ;
+	
 	await store.loadDB() ;
 	
 	term.on( 'key' , key => {
